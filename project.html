@@ -176,40 +176,41 @@
         <option value="company4">Oracle</option>
       </select>
       <br> <br>
-  
-      <label for="company4">Preferred Company 4</label>
-      <select id="company4" name="company1">
-        <option value="company1">Google</option>
-        <option value="company2">Microsoft</option>
-        <option value="company3">Amazon</option>
-        <option value="company4">Oracle</option>
-      </select>
-      <br> <br>
-      
-      <input type="submit" value="Submit">
-    </form>
-  
-    <script>
-      function validateForm() {
-        let name = document.getElementById("name").value;
-        let qualifications = document.getElementById("qualifications").value;
-        let resume = document.getElementById("resume").value;
-        let address = document.getElementById("address").value;
-        let cgpa = document.getElementById("cgpa").value;
-        let college = document.getElementById("college").value;
-        let experience = document.getElementById("experience").value;
-        let skills = document.getElementById("skills").value;
-        let hobbies = document.getElementById("hobbies").value;
-  
-        if (name === "" || qualifications === "" || resume === "" || address === "" || experience === "" || skills === "" || hobbies === "") {
-          alert("Please fill out all fields.");
-          return false;
-        }
-        return true;
-      }
-    </script>
-  <footer>
-    <p>&copy; 2024 Job Application Portal</p>
-  </footer>
+
+     <label for="company4">Preferred Company 4</label>
+     <select id="company4" name="company1">
+       <option value="company1">Google</option>
+       <option value="company2">Microsoft</option>
+       <option value="company3">Amazon</option>
+       <option value="company4">Oracle</option>
+     </select>
+     <br> <br>
+     
+     <input type="submit" value="Submit">
+   </form>
+ 
+   <script>
+     function validateForm() {
+       let name = document.getElementById("name").value;
+       let qualifications = document.getElementById("qualifications").value;
+       let resume = document.getElementById("resume").value;
+       let address = document.getElementById("address").value;
+       let cgpa = document.getElementById("cgpa").value;
+       let college = document.getElementById("college").value;
+       let experience = document.getElementById("experience").value;
+       let skills = document.getElementById("skills").value;
+       let hobbies = document.getElementById("hobbies").value;
+ 
+       if (name === "" || qualifications === "" || resume === "" || address === "" || experience === "" || skills === "" || hobbies === "") {
+         alert("Please fill out all fields.");
+         return false;
+       }
+       return true;
+     }
+   </script>
+ 
+ <footer>
+   <p>&copy; 2024 Job Application Portal</p>
+ </footer>
 </body>
 </html>
