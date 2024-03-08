@@ -412,7 +412,7 @@ background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
             <header>
             <nav>
       <ul>
-        <li><a href="./proj.html" onclick='location.href="./proj.html"'>Home</a></li>
+        <li><a href="./Mainpage.html" onclick='location.href="./Mainpage.html"'>Home</a></li>
         <li><a href="./New_Vacancies.html" onclick='location.href="./New_Vacancies.html"'>New Vacancies</a></li>
         <li><a href="./Application_Status.html" onclick='location.href="./Application_Status.html"'>Application Status</a></li>
       </ul>
