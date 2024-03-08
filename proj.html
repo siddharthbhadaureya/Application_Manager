@@ -3,6 +3,7 @@
 <head>
   <!-- <link href="./input.css" rel="stylesheet"> -->
   <link href="./input.css" rel="stylesheet">
+  <link href="./connection_php.php">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans|Maven+Pro:500' rel='stylesheet' type='text/css'>
 
   <meta charset="UTF-8">
@@ -120,13 +121,12 @@
 </section>
 
 
-
   <header>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">New Vacancies</a></li>
-        <li><a href="#">Application Status</a></li>
+        <li><a href="#" onclick="showTab('home')">Home</a></li>
+        <li><a href="./New_Vacancies.html" onclick='location.href="./New_Vacancies.html"'>New Vacancies</a></li>
+        <li><a href="./Application_Status.html" onclick='location.href="./Application_Status.html"'>Application Status</a></li>
       </ul>
     </nav>
   </header>
@@ -134,7 +134,7 @@
     <h1>Welcome to the Job Application Portal</h1>
   </div>
     <form id="jobApplication" onsubmit="return validateForm()">
-      <h1>Job Application Form</h1>
+      <center><h2>Job Application Form</h2></center>
       <label for="name">Name</label>
       <input type="text" id="name" name="name" required>
       <br>  
@@ -217,10 +217,16 @@
        <option value="company4">Oracle</option>
      </select>
      <br> <br>
-     <button type="submit" value="submit" class="custom-btn btn-10">Submit</button>
-     <!-- <input type="submit" value="Submit"> -->
+     <button type="submit" value="submit" onclick='location.href="./connection_php.php"' class="custom-btn btn-10">Submit</button>
    </form>
- 
+ <!-- New tab for Application Status -->
+ <div id="applicationStatus" class="container" style="display: none;">
+  <h1>Application Status</h1>
+  <p>Your application status:</p>
+  <p>Status: <strong>Pending</strong></p>
+  <p>Application ID: <strong>123456</strong></p>
+  <p>Please check back later for updates.</p>
+</div>
    <script>
 //this is where we apply opacity to the arrow
 $(window).scroll( function(){
@@ -481,6 +487,7 @@ const flipY = Vue.component('flipY', {
          alert("Please fill out all fields.");
          return false;
        }
+       alert("Submitted successfully.")
        return true;
      }
    </script>
