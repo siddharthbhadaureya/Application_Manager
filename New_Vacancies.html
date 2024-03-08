@@ -1,20 +1,77 @@
 <!-- New tab for New Vacancies -->
 <html>
+    <style>
+               * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }    body {
+      font-family: Arial, sans-serif;
+    }
+    </style>
+ 
     <head>
         <Title>New Vacancies</Title>
         <style>
             body {
-              background-color: #b3cc6e; /* Specify the color here */
+              background-color: #ccc; /* Specify the color here */
             }
           </style>
     </head>
     <body>
+        <header>
+            <nav>
+              <ul>
+                <li><a href="./proj.html" onclick='location.href="./proj.html"'>Home</a></li>
+                <li><a href="#" onclick="showTab('New_Vacancies')">New Vacancies</a></li>
+                <li><a href="./Application_Status.html" onclick='location.href="./Application_Status.html"'>Application Status</a></li>
+              </ul>
+            </nav>
+        </header>
         <!-- New tab for New Vacancies -->
 <!-- New tab for New Vacancies -->
 <div id="newVacancies" class="container">
     <h1>New Vacancies</h1>
-    <table style="width:100%; border-collapse: collapse; margin-top: 20px; background-color: #b3cc6e;">
-        <tr style="background-color: b3cc6e;">
+    <table style="width:100%; border-collapse: collapse; margin-top: 20px; background-color: #ccc; ;">
+        <tr style="background-color: ccc;">
           <th style="padding: 8px; text-align: left;">Job Title</th>
           <th style="padding: 8px; text-align: left;">Location</th>
           <th style="padding: 8px; text-align: left;">Posted Date</th>
@@ -70,6 +127,9 @@
         <td style="padding: 8px;">March 19, 2024</td>
       </tr>
     </table>
+    <footer>
+      <p>&copy; 2024 Job Application Portal</p>
+    </footer>
   </div>  
     </body>
 </html>
