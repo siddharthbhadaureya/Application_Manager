@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <!-- <link href="./input.css" rel="stylesheet"> -->
+
   <link href="./input.css" rel="stylesheet">
   <link href="./connection_php.php">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans|Maven+Pro:500' rel='stylesheet' type='text/css'>
@@ -133,13 +134,13 @@
   <div class="container">
     <h1>Welcome to the Job Application Portal</h1>
   </div>
-    <form id="jobApplication" onsubmit="return validateForm()" action="connect.php" method="post">
+    <form id="jobApplication"  action="connect.php" method="post">
       <center><h2>Job Application Form</h2></center>
       <label for="name">Name</label>
       <input type="text" id="name" name="name" required>
       <br>  
       <label for="qualifications">Qualifications</label>
-      <textarea id="qualifications" name="qualifications" rows="4" required></textarea>
+      <textarea input type="text" id="qualifications" name="qualifications" rows="4" required></textarea>
       <br>  
       <label for="resume">Upload Resume (PDF only):</label>
       <input type="file" id="resume" name="resume" accept=".pdf" required>
@@ -147,77 +148,65 @@
       <label for="address">Address</label>
       <input type="text" id="address" name="address" required>
       <br> <br>
-      <label for="Currently Studying(optional)">Currently Studying (Semester):</label>
-      <select id="currentlyStudying" name="currentlyStudying">
-        <option value="">Select</option>
-        <option>            </option>
-        <option value="1">1st Semester</option>
-        <option value="2">2nd Semester</option>
-        <option value="3">3rd Semester</option>
-        <option value="4">4th Semester</option>
-        <option value="5">5th Semester</option>
-        <option value="6">6th Semester</option>
-        <option value="7">7th Semester</option>
-        <option value="8">8th Semester</option>
-      </select>
-      <br> <br> 
+      
+      <label for="Semester">Sem</label>
+      <input type="number"  id="semester" name="semester" required>
+      <br> <br>
   
       <label for="cgpa">CGPA</label>
       <input type="number" step="0.01" id="cgpa" name="cgpa" required>
       <br> <br>
   
       <label for="college">College/University</label>
-      <textarea id="college" name="college" required></textarea>
+      <textarea input type="text" id="college" name="college" required></textarea>
       <br> <br>
   
       <label for="experience">Experience</label>
       <textarea id="experience" name="experience" rows="4" required></textarea>
       <br> <br>
   
-      <label for="skills">Skills</label>
-      <textarea id="skills" name="skills" rows="4" required></textarea>
-      <br> <br>
+
   
       <label for="hobbies">Hobbies</label>
       <textarea id="hobbies" name="hobbies" rows="4" required></textarea>
       <br> <br>
 
-      <label for="company1">Preferred Company 1</label>
+      <label for="company">Preferred Company 1</label>
       <select id="company1" name="company1">
-        <option value="company1">Google</option>
-        <option value="company2">Microsoft</option>
-        <option value="company3">Amazon</option>
-        <option value="company4">Oracle</option>
+        <option value="Google">Google</option>
+        <option value="Microsoft">Microsoft</option>
+        <option value="Amazon">Amazon</option>
+        <option value="Oracle">Oracle</option>
       </select>
       <br> <br>
   
-      <label for="company2">Preferred Company 2:</label>
-      <select id="company2" name="company1">
-        <option value="company1">Google</option>
-        <option value="company2">Microsoft</option>
-        <option value="company3">Amazon</option>
-        <option value="company4">Oracle</option>
+      <label for="company2">Preferred Company 2</label>
+      <select id="company2" name="company2">
+        <option value="Google">Google</option>
+        <option value="Microsoft">Microsoft</option>
+        <option value="Amazon">Amazon</option>
+        <option value="Oracle">Oracle</option>
       </select>
       <br> <br>
   
       <label for="company3">Preferred Company 3</label>
-      <select id="company3" name="company1">
-        <option value="company1">Google</option>
-        <option value="company2">Microsoft</option>
-        <option value="company3">Amazon</option>
-        <option value="company4">Oracle</option>
+      <select id="company3" name="company3">
+        <option value="Google">Google</option>
+        <option value="Microsoft">Microsoft</option>
+        <option value="Amazon">Amazon</option>
+        <option value="Oracle">Oracle</option>
       </select>
       <br> <br>
 
-     <label for="company4">Preferred Company 4</label>
-     <select id="company4" name="company1">
-       <option value="company1">Google</option>
-       <option value="company2">Microsoft</option>
-       <option value="company3">Amazon</option>
-       <option value="company4">Oracle</option>
-     </select>
-     <br> <br>
-     <button type="submit" value="submit" onclick='location.href="./connection_php.php"' class="custom-btn btn-10">Submit</button>
+      <label for="company4">Preferred Company 4</label>
+      <select id="company4" name="company4">
+        <option value="Google">Google</option>
+        <option value="Microsoft">Microsoft</option>
+        <option value="Amazon">Amazon</option>
+        <option value="Oracle">Oracle</option>
+      </select>
+      <br> <br>
+     <button type="submit" value="submit"  class="custom-btn btn-10">Submit</button>
    </form>
  <!-- New tab for Application Status -->
  <div id="applicationStatus" class="container" style="display: none;">
@@ -227,7 +216,7 @@
   <p>Application ID: <strong>123456</strong></p>
   <p>Please check back later for updates.</p>
 </div>
-   <script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
 //this is where we apply opacity to the arrow
 $(window).scroll( function(){
 

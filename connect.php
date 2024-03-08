@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Applicant Data Search</title>
-  <style>
+<?php
+// database connection code
+$con = mysqli_connect('localhost', 'root', '', 'job');
+
+// Check connection
+if (mysqli_connect_errno()) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+
+if(isset($_POST['name'])) {
+    // get the post records
+    $name = $_POST['name'];
+    $qualification = $_POST['qualifications'];
+    $Address = $_POST['address'];
+    $semester = $_POST['semester']; // Make sure this matches the name attribute in the HTML
+    $cgpa = $_POST['cgpa'];
+    $college = $_POST['college'];
+    $experience = $_POST['experience'];
+   
+    $Hobbies = $_POST['hobbies'];
+    $company1 = $_POST['company1'];
+
+    // Check if the keys are set before accessing them to avoid undefined index warnings
+    $company2 = isset($_POST['company2']) ? $_POST['company2'] : null;
+    $company3 = isset($_POST['company3']) ? $_POST['company3'] : null;
+    $company4 = isset($_POST['company4']) ? $_POST['company4'] : null;
+    $status = "Pending";
+    
+    // database insert SQL code
+    $sql = "INSERT INTO job.students(name, qualifications, Address, semester, cgpa, college, experience,  Hobbies, company1, company2, company3, company4, status) VALUES ('$name', '$qualification', '$Address', '$semester', '$cgpa', '$college', '$experience',  '$Hobbies', '$company1', '$company2', '$company3', '$company4', '$status')";
+
+    // insert in database
+    $rs = mysqli_query($con, $sql);
+    if($rs) {
+?>
+        <html>
+        <head>
+            <title>Form Data</title>
+            <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
@@ -180,9 +212,9 @@ background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
       font-family: Arial, sans-serif;
     }
   </style>
-</head>
-<body>
-  <header>
+        </head>
+        <body>
+        <header>
       <nav>
         <ul>
           <li><a href="./proj.html" onclick='location.href="./proj.html"'>Home</a></li>
@@ -191,21 +223,22 @@ background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
         </ul>
       </nav>
   </header>
-<form id="applicantSearchForm" action="connect1.php" method="POST">
-  <br><br><br>
-  <label for="name">Applicant's Name:</label>
-  <input type="text" id="name" name="name" required>
-  <button type="submit" class="custom-btn btn-4" value="Search"><span>Submit</span></button>
-</form>
-<div id="statusResult" class="status" style="display: none;">
-  <h2>Status:</h2>
-  <p id="statusText"></p>
-</div>
-<footer>
+            <h1> Record Stored Successfully </h1>
+            <footer>
   <p>&copy; 2024 Job Application Portal</p>
 </footer>
 <script>
-  // Your JavaScript code here
-</script>
-</body>
-</html>
+        </body>
+        
+        </html>
+<?php
+    } else {
+        die("Error: " . mysqli_error($con));
+    }
+} else {
+    echo "Are you a genuine visitor?";
+}
+
+// Close connection
+mysqli_close($con);
+?>
