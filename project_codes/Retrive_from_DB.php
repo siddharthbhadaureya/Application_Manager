@@ -8,12 +8,12 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-// Check if the name is sent via POST request
-if(isset($_POST['name'])) {
-    $name = $_POST['name'];
+// Check if the USN is sent via POST request
+if(isset($_POST['usn'])) {
+    $usn = $_POST['usn'];
 
-    // Fetch application status based on the applicant's name
-    $query = "SELECT status FROM students WHERE name = '$name'";
+    // Fetch application status based on the applicant's USN
+    $query = "SELECT status FROM students WHERE usn = '$usn'";
     $result = mysqli_query($con, $query);
 
     if(mysqli_num_rows($result) > 0) {
@@ -27,12 +27,19 @@ if(isset($_POST['name'])) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Application Status</title>
             <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
+   body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url('bg.jpg'); /* Replace 'your-background-image.jpg' with the path to your background image */
+            background-size: cover; /* Ensures the background image covers the entire viewport */
+            font-family: Arial, sans-serif; /* Sets the font family for the entire document */
+            color: white; /* Ensure the content stretches to at least the height of the viewport */
+        }
     .container {
       max-width: 600px;
       margin: 20px auto;
@@ -194,31 +201,35 @@ background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
     }
 
     footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px 0;
-    }    body {
-      font-family: Arial, sans-serif;
-    }
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto; /* Push the footer to the bottom */
+            width: 100%; /* Ensure footer stretches across the width */
+        }
   </style>
         </head>
         <body>
             <header>
-            <nav>
-      <ul>
-        <li><a href="./proj.html" onclick='location.href="./proj.html"'>Home</a></li>
-        <li><a href="./New_Vacancies.html" onclick='location.href="./New_Vacancies.html"'>New Vacancies</a></li>
-        <li><a href="./Application_Status.html" onclick='location.href="./Application_Status.html"'>Application Status</a></li>
-      </ul>
-    </nav>
+                <nav>
+                    <ul>
+                        <li><a href="./proj.html" onclick='location.href="./proj.html"'>Home</a></li>
+                        <li><a href="./New_Vacancies.html" onclick='location.href="./New_Vacancies.html"'>New Vacancies</a></li>
+                        <li><a href="./Application_Status.html" onclick='location.href="./Application_Status.html"'>Application Status</a></li>
+                    </ul>
+                </nav>
             </header>
             <div id="statusResult" class="status">
-                <h2>Status:</h2>
-                <p>Application status for applicant <?php echo $name; ?>: <?php echo $status; ?></p>
+                <h2>Application Status Result</h2>
+                <br><br><br><br><br><br>
+                <h2>
+                <p><b> Application status of</b> <br><br><br><center> <?php echo $usn; ?></center> <br><br> <?php echo $status; ?></p>
+                </h2>
+                
             </div>
             <footer>
-            <p>&copy; 2024 Job Application Portal</p>
+                <p>&copy; 2024 Job Application Portal</p>
             </footer>
         </body>
         </html>
@@ -410,26 +421,26 @@ background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
         </head>
         <body>
             <header>
-            <nav>
-      <ul>
-        <li><a href="./Mainpage.html" onclick='location.href="./Mainpage.html"'>Home</a></li>
-        <li><a href="./New_Vacancies.html" onclick='location.href="./New_Vacancies.html"'>New Vacancies</a></li>
-        <li><a href="./Application_Status.html" onclick='location.href="./Application_Status.html"'>Application Status</a></li>
-      </ul>
-    </nav>
+                <nav>
+                    <ul>
+                        <li><a href="./proj.html" onclick='location.href="./proj.html"'>Home</a></li>
+                        <li><a href="./New_Vacancies.html" onclick='location.href="./New_Vacancies.html"'>New Vacancies</a></li>
+                        <li><a href="./Application_Status.html" onclick='location.href="./Application_Status.html"'>Application Status</a></li>
+                    </ul>
+                </nav>
             </header>
             <div id="statusResult" class="status">
                 <h2>Status:</h2>
-                <p>No application found for applicant <?php echo $name; ?></p>
+                <p>No application found for applicant <?php echo $usn; ?></p>
             </div>
             <footer>
-            <p>&copy; 2024 Job Application Portal</p>
+                <p>&copy; 2024 Job Application Portal</p>
             </footer>
         </body>
         </html>
         <?php
     }
 } else {
-    echo "Error: Name parameter is missing.";
+    echo "Error: usn parameter is missing.";
 }
 ?>
