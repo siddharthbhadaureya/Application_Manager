@@ -10,6 +10,7 @@ if (mysqli_connect_errno()) {
 if(isset($_POST['name'])) {
     // get the post records
     $name = $_POST['name'];
+    $usn = $_POST['usn'];
     $qualification = $_POST['qualifications'];
     $Address = $_POST['address'];
     $semester = $_POST['semester']; // Make sure this matches the name attribute in the HTML
@@ -27,7 +28,7 @@ if(isset($_POST['name'])) {
     $status = "Pending";
     
     // database insert SQL code
-    $sql = "INSERT INTO job.students(name, qualifications, Address, semester, cgpa, college, experience,  Hobbies, company1, company2, company3, company4, status) VALUES ('$name', '$qualification', '$Address', '$semester', '$cgpa', '$college', '$experience',  '$Hobbies', '$company1', '$company2', '$company3', '$company4', '$status')";
+    $sql = "INSERT INTO job.students(USN ,name, qualifications, Address, semester, cgpa, college, experience,  Hobbies, company1, company2, company3, company4, status) VALUES ('$usn','$name', '$qualification', '$Address', '$semester', '$cgpa', '$college', '$experience',  '$Hobbies', '$company1', '$company2', '$company3', '$company4', '$status')";
 
     // insert in database
     $rs = mysqli_query($con, $sql);
@@ -37,12 +38,19 @@ if(isset($_POST['name'])) {
         <head>
             <title>Form Data</title>
             <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url('bg.jpg'); /* Replace 'your-background-image.jpg' with the path to your background image */
+            background-size: cover; /* Ensures the background image covers the entire viewport */
+            font-family: Arial, sans-serif; /* Sets the font family for the entire document */
+            color: white; /* Ensure the content stretches to at least the height of the viewport */
+        }
     .container {
       max-width: 600px;
       margin: 20px auto;
@@ -204,26 +212,27 @@ background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
     }
 
     footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px 0;
-    }    body {
-      font-family: Arial, sans-serif;
-    }
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto; /* Push the footer to the bottom */
+            width: 100%; /* Ensure footer stretches across the width */
+        }
   </style>
         </head>
         <body>
         <header>
       <nav>
         <ul>
-          <li><a href="./Mainpage.html" onclick='location.href="./Mainpage.html"'>Home</a></li>
+          <li><a href="./proj.html" onclick='location.href="./proj.html"'>Home</a></li>
           <li><a href="./New_Vacancies.html" onclick='location.href="./New_Vacancies.html"'>New Vacancies</a></li>
           <li><a href="#" onclick="showTab('Application_Status')">Application Status</a></li>
         </ul>
       </nav>
   </header>
-            <h1> Record Stored Successfully </h1>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <h1> Record Stored Successfully! </h1>
             <footer>
   <p>&copy; 2024 Job Application Portal</p>
 </footer>
