@@ -243,12 +243,19 @@ background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>No Application Found</title>
             <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
+   body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url('bg.jpg'); /* Replace 'your-background-image.jpg' with the path to your background image */
+            background-size: cover; /* Ensures the background image covers the entire viewport */
+            font-family: Arial, sans-serif; /* Sets the font family for the entire document */
+            color: white; /* Ensure the content stretches to at least the height of the viewport */
+        }
     .container {
       max-width: 600px;
       margin: 20px auto;
@@ -410,13 +417,13 @@ background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
     }
 
     footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px 0;
-    }    body {
-      font-family: Arial, sans-serif;
-    }
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto; /* Push the footer to the bottom */
+            width: 100%; /* Ensure footer stretches across the width */
+        }
   </style>
         </head>
         <body>
@@ -430,8 +437,8 @@ background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
                 </nav>
             </header>
             <div id="statusResult" class="status">
-                <h2>Status:</h2>
-                <p>No application found for applicant <?php echo $usn; ?></p>
+                <h1>Application Status Result </h1>
+                <h2><p><b>No application found for applicant <?php echo $usn; ?></b></p></h2>
             </div>
             <footer>
                 <p>&copy; 2024 Job Application Portal</p>
