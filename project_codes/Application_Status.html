@@ -5,12 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Applicant Data Search</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url('bg.jpg'); /* Replace 'your-background-image.jpg' with the path to your background image */
+            background-size: cover; /* Ensures the background image covers the entire viewport */
+            font-family: Arial, sans-serif; /* Sets the font family for the entire document */
+            color: white; /* Ensure the content stretches to at least the height of the viewport */
+        }
     .container {
       max-width: 600px;
       margin: 20px auto;
@@ -172,13 +179,13 @@ background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
     }
 
     footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 10px 0;
-    }    body {
-      font-family: Arial, sans-serif;
-    }
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto; /* Push the footer to the bottom */
+            width: 100%; /* Ensure footer stretches across the width */
+        }
   </style>
 </head>
 <body>
@@ -191,11 +198,13 @@ background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
         </ul>
       </nav>
   </header>
-<form id="applicantSearchForm" action="Retrive_from_DB.php" method="POST">
+<form id="applicantSearchForm" action="connect1.php" method="POST">
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  <label for="name"><b><h2>Applicant's USN</h2></b></label>
   <br><br><br>
-  <label for="name">Applicant's Name:</label>
-  <input type="text" id="name" name="name" required>
-  <button type="submit" class="custom-btn btn-4" value="Search"><span>Submit</span></button>
+  <input type="text" id="usn" name="usn" required>
+  <br><br><br>
+  <center><button type="submit" class="custom-btn btn-4" value="Search"><span><b>Submit</b></span></button></center>
 </form>
 <div id="statusResult" class="status" style="display: none;">
   <h2>Status:</h2>
